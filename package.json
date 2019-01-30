@@ -1,0 +1,25 @@
+{
+  "name": "purple-toy-box",
+  "version": "1.0.0",
+  "description": "Yuri Games' website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hudsonl13/purple-toy-box.git"
+  },
+  "author": "Hudson Lessa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hudsonl13/purple-toy-box/issues"
+  },
+  "homepage": "https://github.com/hudsonl13/purple-toy-box#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "nodemailer": "^5.1.1"
+  }
+}

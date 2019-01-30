@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400|Montserrat:400");
+@import url("https://use.typekit.net/djz4nyl.css");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto";
+  font-size: 16px;
+}
+
+header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: #000;
+}
+header nav {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 50px;
+  line-height: 50px;
+  color: #FFF;
+}
+header nav p {
+  float: left;
+  font-family: "Chuck";
+  font-size: 32px;
+}
+header nav ul {
+  float: right;
+  font-family: "Montserrat";
+  list-style-type: none;
+}
+@media (min-width: 768px) {
+  header nav ul {
+    display: flex;
+  }
+}
+header nav ul li {
+  margin: 0 20px;
+  text-transform: uppercase;
+}
+header nav ul li a {
+  color: #FFF;
+  text-decoration: none;
+}
+header nav ul li a:visited {
+  color: #FFF;
+}
+
+.container {
+  padding: 200px 0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+#hero {
+  text-align: center;
+  background: linear-gradient(#FF9900, #FF6600);
+  color: #FFF;
+}
+#hero p {
+  font-weight: 100;
+  font-size: 24px;
+}
+#hero p:first-of-type {
+  font-family: "Chuck";
+  font-size: 72px;
+}
+
+#offers {
+  height: 700px;
+  background: #FFF;
+}
+
+footer {
+  height: 50px;
+  background: #000;
+  color: #FFF;
+  line-height: 50px;
+  text-align: center;
+}
+footer a {
+  color: #FFF;
+}
+footer a:visited {
+  color: #FFF;
+}
+
+/*# sourceMappingURL=style.css.map */

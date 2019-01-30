@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400|Montserrat:400");
+@import url("https://use.typekit.net/djz4nyl.css");
+
+*
+{
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+body
+{
+    font-family: "Roboto";
+    font-size: 16px;
+}
+
+header
+{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: #000;
+
+    nav
+    {
+        margin: 0 auto;
+        max-width: 1200px;
+        height: 50px;
+        line-height: 50px;
+        color: #FFF;
+
+        @media (min-width: 768px)
+        {
+
+        }
+
+        @media (min-width: 1200px)
+        {
+
+        }
+
+        p
+        {
+            float: left;
+            font-family: "Chuck";
+            font-size: 32px;
+        }
+
+        ul
+        {
+            float: right;
+            font-family: "Montserrat";
+            list-style-type: none;
+
+            @media (min-width: 768px)
+            {
+                display: flex;
+            }
+
+            li
+            {
+                margin: 0 20px;
+                text-transform: uppercase;
+
+                a
+                {
+                    color: #FFF;
+                    text-decoration: none;
+
+                    &:visited
+                    {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container
+{
+    padding: 200px 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#hero
+{
+    text-align: center;
+    background: linear-gradient(#FF9900 , #FF6600);
+    color: #FFF;
+
+    p
+    {
+        font-weight: 100;
+        font-size: 24px;
+    }
+
+    p:first-of-type
+    {
+        font-family: "Chuck";
+        font-size: 72px;
+    }
+}
+
+#offers
+{
+    height: 700px;
+    background: #FFF;
+}
+
+footer
+{
+    height: 50px;
+    background: #000;
+    color: #FFF;
+    line-height: 50px;
+    text-align: center;
+
+    a
+    {
+        color: #FFF;
+
+        &:visited
+        {
+            color: #FFF;
+        }
+    }
+}
