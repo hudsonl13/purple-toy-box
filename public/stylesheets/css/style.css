@@ -14,6 +14,7 @@ body {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 a:visited {
@@ -27,30 +28,52 @@ header {
   background-color: #000;
 }
 header nav {
-  margin: 0 auto;
+  display: flex;
   max-width: 1200px;
   height: 50px;
   line-height: 50px;
-  display: none;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  header nav {
+    justify-content: center;
+  }
 }
 @media (min-width: 1200px) {
   header nav {
-    display: block;
+    justify-content: space-between;
   }
 }
-header nav p {
-  float: left;
-  font-family: "Chuck";
-  font-size: 32px;
+header nav .collapsible-menu-button {
+  width: 50px;
+  height: 50px;
+  background: url("/images/icon_collapsible-menu.svg") center no-repeat;
+  background-size: 32px;
+}
+@media (min-width: 768px) {
+  header nav .collapsible-menu-button {
+    display: none;
+  }
+}
+header nav .logo {
+  display: none;
+}
+@media (min-width: 768px) {
+  header nav .logo {
+    display: inline;
+    margin-right: 20px;
+    font-family: "Chuck";
+    font-size: 32px;
+  }
 }
 header nav ul {
-  float: right;
-  font-family: "Montserrat";
-  list-style-type: none;
+  display: none;
 }
 @media (min-width: 768px) {
   header nav ul {
     display: flex;
+    font-family: "Montserrat";
+    list-style-type: none;
   }
 }
 header nav ul li {
@@ -63,7 +86,16 @@ header nav ul li:last-of-type {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
 }
 
 section {
@@ -83,8 +115,10 @@ section:nth-of-type(even) {
   height: 700px;
   text-align: center;
 }
-#hero .container {
-  margin-top: 150px;
+@media (min-width: 768px) {
+  #hero .container {
+    margin-top: 150px;
+  }
 }
 #hero .container p {
   font-weight: 100;
@@ -98,15 +132,34 @@ section:nth-of-type(even) {
   margin: 50px auto 0;
 }
 
-#offers .filter {
+#ofertas .filter {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
-#offers .filter .button:nth-of-type(odd) {
-  margin-right: 20px;
+@media (min-width: 768px) {
+  #ofertas .filter {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
-#offers .filter .button:nth-of-type(even) {
-  margin-left: 20px;
+@media (min-width: 1200px) {
+  #ofertas .filter {
+    justify-content: normal;
+  }
+}
+#ofertas .filter .button:nth-of-type(odd) {
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  #ofertas .filter .button:nth-of-type(odd) {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 768px) {
+  #ofertas .filter .button:nth-of-type(even) {
+    margin-left: 20px;
+  }
 }
 
 footer {
@@ -127,12 +180,18 @@ footer a {
   width: 150px;
   height: 25px;
   line-height: 25px;
+  margin: 0 auto;
   border-radius: 5px;
   background: #9900FF;
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   box-shadow: 0 6px 0 #6600FF;
+}
+@media (min-width: 1200px) {
+  .button {
+    margin: 0;
+  }
 }
 .button:hover {
   cursor: pointer;
@@ -200,6 +259,10 @@ footer a {
   position: absolute;
   bottom: 20px;
   right: 10px;
+}
+
+#collapsible-menu {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

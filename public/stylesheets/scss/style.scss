@@ -18,6 +18,7 @@ body
 
 a
 {
+    color: inherit;
     text-decoration: none;
 
     &:visited
@@ -35,38 +36,57 @@ header
 
     nav
     {
-        margin: 0 auto;
+        display: flex;
         max-width: 1200px;
         height: 50px;
         line-height: 50px;
-        display: none;
+        margin: 0 auto;
 
         @media (min-width: 768px)
         {
-
+            justify-content: center;
         }
 
         @media (min-width: 1200px)
         {
-            display: block;
+            justify-content: space-between;
         }
 
-        p
+        .collapsible-menu-button
         {
-            float: left;
-            font-family: "Chuck";
-            font-size: 32px;
+            width: 50px;
+            height: 50px;
+            background: url("/images/icon_collapsible-menu.svg") center no-repeat;
+            background-size: 32px;
+
+            @media (min-width: 768px)
+            {
+                display: none;
+            }
+        }
+
+        .logo
+        {
+            display: none;
+
+            @media (min-width: 768px)
+            {
+                display: inline;
+                margin-right: 20px;
+                font-family: "Chuck";
+                font-size: 32px;
+            }
         }
 
         ul
         {
-            float: right;
-            font-family: "Montserrat";
-            list-style-type: none;
+            display: none;
 
             @media (min-width: 768px)
             {
                 display: flex;
+                font-family: "Montserrat";
+                list-style-type: none;
             }
 
             li
@@ -86,7 +106,16 @@ header
 .container
 {
     margin: 0 auto;
-    max-width: 1200px;
+
+    @media (min-width: 768px)
+    {
+        width: 700px;
+    }
+
+    @media (min-width: 1200px)
+    {
+        width: 1200px;
+    }
 }
 
 section
@@ -112,7 +141,10 @@ section:nth-of-type(even)
 
     .container
     {
-        margin-top: 150px;
+        @media (min-width: 768px)
+        {
+            margin-top: 150px;
+        }
 
         p
         {
@@ -133,21 +165,41 @@ section:nth-of-type(even)
     }
 }
 
-#offers
+#ofertas
 {
     .filter
     {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+
+        @media (min-width: 768px)
+        {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        @media (min-width: 1200px)
+        {
+            justify-content: normal;
+        }
 
         .button:nth-of-type(odd)
         {
-            margin-right: 20px;
+            margin-bottom: 20px;
+
+            @media (min-width: 768px)
+            {
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
         }
 
         .button:nth-of-type(even)
         {
-            margin-left: 20px;
+            @media (min-width: 768px)
+            {
+                margin-left: 20px;
+            }
         }
     }
 }
@@ -174,12 +226,18 @@ footer
     width: 150px;
     height: 25px;
     line-height: 25px;
+    margin: 0 auto;
     border-radius: 5px;
     background: #9900FF;
     font-family: inherit;
     font-size: inherit;
     color: inherit;
     box-shadow: 0 6px 0 #6600FF;
+
+    @media (min-width: 1200px)
+    {
+        margin: 0;
+    }
 
     &:hover
     {
@@ -268,4 +326,9 @@ footer
             right: 10px;
         }
     }
+}
+
+#collapsible-menu
+{
+    display: none;
 }
