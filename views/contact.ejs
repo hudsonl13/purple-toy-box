@@ -1,20 +1,17 @@
-<style>
-    @import url("https://fonts.googleapis.com/css?family=Roboto:400");
-    body
-    {
-        background: linear-gradient(#FF9900 , #FF6600);
-        color: #FFF;
-        font-family: "Roboto";
-    }
+<% include ./partials/header.ejs %>
+<section class = "contact-section">
+    <div class = "container">
+        <p class = "title contact-title">Yuri Games</p>
+    </div>
 
-    p
-    {
-        font-size: 32px;
-        text-align: center;
-        text-transform: uppercase;
-    }
-</style>
+    <form action = "/email" method = "post">
+        <input required type = "text" name = "name" placeholder = "Nome">
+        <input required type = "email" name = "emailAddress" placeholder = "Endereço de email">
+        <input required type = "text" name = "subject" placeholder = "Assunto">
+        <textarea required name = "message" placeholder = "Mensagem"></textarea>
+        <button class = "button">Enviar</button>
+    </form>
 
-<body>
-    <p>Página em construção!</p>
-</body>
+    <p>ou fale comigo no WhatsApp! (21) 99999-9999</p>
+</section>
+<% include ./partials/footer.ejs %>
