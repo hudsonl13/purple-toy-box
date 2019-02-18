@@ -16,6 +16,11 @@ body
     color: #FFF;
 }
 
+ul
+{
+    list-style-type: none;
+}
+
 a
 {
     color: inherit;
@@ -52,12 +57,12 @@ header
             justify-content: space-between;
         }
 
-        .collapsible-menu-button
+        #collapsible-menu-button
         {
-            width: 50px;
-            height: 50px;
+            width: 20px;
+            height: 15px;
+            margin: auto 20px;
             background: url("/images/icon_collapsible-menu.svg") center no-repeat;
-            background-size: 32px;
 
             @media (min-width: 768px)
             {
@@ -86,7 +91,6 @@ header
             {
                 display: flex;
                 font-family: "Montserrat";
-                list-style-type: none;
             }
 
             li
@@ -217,10 +221,48 @@ footer
     background: #000;
     text-align: center;
 
+    nav
+    {
+        position: fixed;
+        top: 50px;
+        left: -200px;
+        width: 200px;
+        height: 100%;
+        background-color: #000;
+        transition: .2s;
+
+        @media (min-width: 768px)
+        {
+            display: none;
+        }
+
+        ul
+        {
+            flex-direction: column;
+
+            li
+            {
+                margin: 20px;
+                text-align: left;
+
+                a
+                {
+                    color: #FFF;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
     a
     {
         text-decoration: underline;
     }
+}
+
+.menu-active
+{
+    left: 0;
 }
 
 .button
@@ -254,6 +296,12 @@ footer
         top: 3px;
         box-shadow: 0 3px 0 #6600FF;
     }
+}
+
+.filter__button--active
+{
+    top: 3px;
+    box-shadow: 0 3px 0 #6600FF;
 }
 
 .products
@@ -335,7 +383,10 @@ footer
 
 #collapsible-menu
 {
-    display: none;
+    @media (min-width: 768px)
+    {
+       display: none;
+    }
 }
 
 .photo
@@ -393,8 +444,6 @@ footer
     padding-top: 150px;
 }
 
-
-
 form
 {
     display: grid;
@@ -415,7 +464,7 @@ form
 
         &::placeholder
         {
-            color: #FFF;
+            color: #999;
         }
 
         @media (min-width: 768px)
@@ -446,7 +495,7 @@ form
 
         &::placeholder
         {
-            color: #FFF;
+            color: #999;
         }
 
         @media (min-width: 768px)
@@ -470,5 +519,12 @@ form
 form + p
 {
     margin-top: 50px;
+    text-align: center;
+}
+
+.email-section
+{
+    padding-top: 200px;
+    height: 700px;
     text-align: center;
 }

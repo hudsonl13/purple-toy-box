@@ -1,0 +1,13 @@
+li {
+  margin-bottom: 20px;
+}
+
+li > * {
+  margin-left: 0 10px;
+}
+
+button:nth-of-type(2) {
+  display: none;
+}
+
+/*# sourceMappingURL=style_admin.css.map */

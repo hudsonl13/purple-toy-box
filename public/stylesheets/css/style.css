@@ -13,6 +13,10 @@ body {
   color: #FFF;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -44,14 +48,14 @@ header nav {
     justify-content: space-between;
   }
 }
-header nav .collapsible-menu-button {
-  width: 50px;
-  height: 50px;
+header nav #collapsible-menu-button {
+  width: 20px;
+  height: 15px;
+  margin: auto 20px;
   background: url("/images/icon_collapsible-menu.svg") center no-repeat;
-  background-size: 32px;
 }
 @media (min-width: 768px) {
-  header nav .collapsible-menu-button {
+  header nav #collapsible-menu-button {
     display: none;
   }
 }
@@ -73,7 +77,6 @@ header nav ul {
   header nav ul {
     display: flex;
     font-family: "Montserrat";
-    list-style-type: none;
   }
 }
 header nav ul li {
@@ -176,8 +179,37 @@ footer {
   background: #000;
   text-align: center;
 }
+footer nav {
+  position: fixed;
+  top: 50px;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  background-color: #000;
+  transition: 0.2s;
+}
+@media (min-width: 768px) {
+  footer nav {
+    display: none;
+  }
+}
+footer nav ul {
+  flex-direction: column;
+}
+footer nav ul li {
+  margin: 20px;
+  text-align: left;
+}
+footer nav ul li a {
+  color: #FFF;
+  text-decoration: none;
+}
 footer a {
   text-decoration: underline;
+}
+
+.menu-active {
+  left: 0;
 }
 
 .button {
@@ -204,6 +236,11 @@ footer a {
   cursor: pointer;
 }
 .button:active {
+  top: 3px;
+  box-shadow: 0 3px 0 #6600FF;
+}
+
+.filter__button--active {
   top: 3px;
   box-shadow: 0 3px 0 #6600FF;
 }
@@ -268,8 +305,10 @@ footer a {
   right: 10px;
 }
 
-#collapsible-menu {
-  display: none;
+@media (min-width: 768px) {
+  #collapsible-menu {
+    display: none;
+  }
 }
 
 .photo {
@@ -338,7 +377,7 @@ form input {
   color: #FFF;
 }
 form input::placeholder {
-  color: #FFF;
+  color: #999;
 }
 @media (min-width: 768px) {
   form input[name=emailAddress] {
@@ -360,7 +399,7 @@ form textarea {
   color: #FFF;
 }
 form textarea::placeholder {
-  color: #FFF;
+  color: #999;
 }
 @media (min-width: 768px) {
   form textarea {
@@ -379,6 +418,12 @@ form button {
 
 form + p {
   margin-top: 50px;
+  text-align: center;
+}
+
+.email-section {
+  padding-top: 200px;
+  height: 700px;
   text-align: center;
 }
 
