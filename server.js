@@ -3,11 +3,13 @@ require("dotenv").config();
 
 const express = require("express");
 const nodemailer = require("nodemailer");
+const productRoutes = require("./routes/products");
 
 const app = express();
 
 app.set("view engine" , "ejs");
 
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
@@ -77,10 +79,12 @@ app.post("/login" , function(req , res)
 
 });
 
-app.get("/produtos" , function(req , res)
+app.get("/admin" , function(req , res)
 {
-    res.render("products");
+    res.render("admin");
 });
+
+app.use("/api/products" , productRoutes);
 
 // Start the web server
 app.listen(process.env.PORT || 8080 , function()

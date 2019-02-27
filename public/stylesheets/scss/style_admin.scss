@@ -1,11 +1,32 @@
-li
+*
 {
-    margin-bottom: 20px;
+    box-sizing: border-box;
+    margin: 0;
 }
 
-li > *
+body
 {
-    margin-left: 0 10px;
+    margin: 0 20px;
+}
+
+li
+{
+    margin-top: 20px;
+
+    &:last-of-type
+    {
+        margin-bottom: 20px;
+    }
+
+    *
+    {
+        margin-left: 10px;
+    }
+
+    input:nth-of-type(2)
+    {
+        text-align: right;
+    }
 }
 
 button:nth-of-type(2)
