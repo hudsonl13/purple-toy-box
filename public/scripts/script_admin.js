@@ -34,6 +34,7 @@ function handleSalvar()
 
 function handleRemover()
 {
+    console.log(this);
     removeProduct(this.parentNode);
 }
 
@@ -59,11 +60,8 @@ function setButtonsUp()
 
     buttonsRemover.forEach(function(buttonRemover)
     {
-        buttonRemover.addEventListener("click" , function()
-        {
-            buttonRemover.removeEventListener("click" , handleRemover);
-            buttonRemover.addEventListener("click" ,handleRemover);
-        });
+        buttonRemover.removeEventListener("click" , handleRemover);
+        buttonRemover.addEventListener("click" , handleRemover);
     });
 }
 
@@ -118,6 +116,7 @@ function upsertProduct(product)
 
 function removeProduct(product)
 {
+
     var clickedProductId = product.dataset.id;
 
     fetch("/api/products/" + clickedProductId , {method: "delete"})

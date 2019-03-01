@@ -37,7 +37,7 @@ function addProducts(products)
 function addProduct(product)
 {
     var newProduct = `<div class = 'product'>
-        <a href = '${product.link}'><div class = 'product-image'><img src = '${product.image}'></div></a>
+        <a href = '${product.link}' target = '_blank'><div class = 'product-image'><img src = '${product.image}'></div></a>
         <div class = 'product-info'>
             <p>${product.name}</p>
             <p>R$ ${product.price.toFixed(2).replace("." , ",")}</p>

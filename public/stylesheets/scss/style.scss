@@ -146,14 +146,14 @@ section:nth-of-type(even)
 
     @media (min-width: 768px)
     {
-        height: 700px;
+        height: 500px;
     }
 
     .container
     {
         @media (min-width: 768px)
         {
-            margin-top: 150px;
+            margin-top: 75px;
         }
 
         .button
@@ -431,6 +431,7 @@ footer
 
 .about-section
 {
+    height: 650px;
     padding-top: 150px;
 }
 
@@ -441,7 +442,19 @@ footer
 
 .contact-section
 {
+    height: 650px;
     padding-top: 150px;
+    text-align: center;
+
+    p:first-of-type
+    {
+        margin-top: 50px;
+    }
+
+    a
+    {
+        text-decoration: underline;
+    }
 }
 
 form
@@ -514,12 +527,6 @@ form
             grid-column: 2;
         }
     }
-}
-
-form + p
-{
-    margin-top: 50px;
-    text-align: center;
 }
 
 .email-section

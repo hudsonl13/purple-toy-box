@@ -121,12 +121,12 @@ section:nth-of-type(even) {
 }
 @media (min-width: 768px) {
   #hero {
-    height: 700px;
+    height: 500px;
   }
 }
 @media (min-width: 768px) {
   #hero .container {
-    margin-top: 150px;
+    margin-top: 75px;
   }
 }
 #hero .container .button {
@@ -349,6 +349,7 @@ footer a {
 }
 
 .about-section {
+  height: 650px;
   padding-top: 150px;
 }
 
@@ -357,7 +358,15 @@ footer a {
 }
 
 .contact-section {
+  height: 650px;
   padding-top: 150px;
+  text-align: center;
+}
+.contact-section p:first-of-type {
+  margin-top: 50px;
+}
+.contact-section a {
+  text-decoration: underline;
 }
 
 form {
@@ -414,11 +423,6 @@ form button {
   form button {
     grid-column: 2;
   }
-}
-
-form + p {
-  margin-top: 50px;
-  text-align: center;
 }
 
 .email-section {
