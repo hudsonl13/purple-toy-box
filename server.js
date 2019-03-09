@@ -4,6 +4,10 @@ require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const productRoutes = require("./routes/products");
+var passport = require("passport");
+var LocalStrategy = require("passport-local");
+var User = require("./models/user");
+var middleware = require("./middleware");
 
 const app = express();
 
@@ -12,6 +16,27 @@ app.set("view engine" , "ejs");
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
+
+// Passport configuration
+app.use(require("express-session")(
+{
+    secret: process.env.PASSPORT_SECRET ,
+    resave: false ,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req , res , next)
+{
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // Set routes
 app.get("/" , function(req , res)
@@ -29,43 +54,28 @@ app.get("/contato" , function(req , res)
     res.render("contact");
 });
 
-app.post("/email" , function(req , res)
+app.get("/top-secret-area" , function(req , res)
 {
-    let transporter = nodemailer.createTransport(
-    {
-        host: "smtp-mail.outlook.com" ,
-        port: 587 ,
-        secure: false , // True for 465, false for other ports
-        tls:
-        {
-            ciphers:'SSLv3'
-        } ,
-        auth:
-        {
-            user: process.env.OUTLOOK_USER ,
-            pass: process.env.OUTLOOK_PASSWORD
-        }
-    });
+    res.render("top-secret-area");
+});
 
-    // Setup email data with unicode symbols
-    let mailOptions =
-    {
-        from: "Nodemailer <yurigamesloja@outlook.com>" , // Sender address
-        to: "yurigamesloja@outlook.com" , // List of receivers
-        subject: req.body.subject , // Subject line
-        text: req.body.message + "\n" + req.body.name + " - " + req.body.emailAddress , // Plain text body
-        html: req.body.message + "<br><br><b>" + req.body.name + " - " + req.body.emailAddress + "</b>" // HTML body
-    };
+app.post("/top-secret-area" , function(req , res)
+{
+    var user = new User({username: req.body.username});
+    console.log(req.body.password);
 
-    // Send mail with defined transport object
-    transporter.sendMail(mailOptions , function(error , info)
+    User.register(user , req.body.password , function(err , user)
     {
-        if (error)
+        if (err)
         {
-            res.render("email" , {message: "Erro ao enviar email. Tente novamente!"});
+            console.log(err);
+            return res.redirect("/top-secret-area");
         }
-        else
-            res.render("email" , {message: "Email enviado com sucesso!"});
+
+        passport.authenticate("local")(req , res , function()
+        {
+            res.redirect("/admin-panel");
+        });
     });
 });
 
@@ -74,14 +84,21 @@ app.get("/login" , function(req , res)
     res.render("login");
 });
 
-app.post("/login" , function(req , res)
+app.post("/login" , passport.authenticate("local" ,
 {
+    successRedirect: "/admin-panel" ,
+    failureRedirect: "/login"
+}));
 
+app.get("/logout" , function(req , res)
+{
+    req.logout();
+    res.redirect("/login");
 });
 
-app.get("/admin" , function(req , res)
+app.get("/admin-panel" , middleware.checkLogin , function(req , res)
 {
-    res.render("admin");
+    res.render("admin-panel");
 });
 
 app.use("/api/products" , productRoutes);

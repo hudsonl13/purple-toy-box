@@ -19,9 +19,12 @@ li * {
 li input:nth-of-type(2) {
   text-align: right;
 }
-
-button:nth-of-type(2) {
+li button:nth-of-type(2) {
   display: none;
+}
+
+#button-novo {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=style_admin.css.map */

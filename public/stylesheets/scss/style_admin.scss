@@ -27,9 +27,14 @@ li
     {
         text-align: right;
     }
+
+    button:nth-of-type(2)
+    {
+        display: none;
+    }
 }
 
-button:nth-of-type(2)
+#button-novo
 {
-    display: none;
+    margin-bottom: 10px;
 }
