@@ -446,9 +446,40 @@ footer
     padding-top: 150px;
     text-align: center;
 
-    p:first-of-type
+    .contact
     {
-        margin-top: 50px;
+        span
+        {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+        }
+
+        a
+        {
+            display: block;
+        }
+    }
+
+    .contact:first-of-type
+    {
+        margin: 50px 0 10px;
+
+        span
+        {
+            background: url("/images/icon_instagram.svg");
+        }
+    }
+
+    .contact:nth-of-type(2)
+    {
+        span
+        {
+            background: url("/images/icon_whatsapp.svg");
+        }
     }
 
     a

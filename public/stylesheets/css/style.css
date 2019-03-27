@@ -362,8 +362,25 @@ footer a {
   padding-top: 150px;
   text-align: center;
 }
-.contact-section p:first-of-type {
-  margin-top: 50px;
+.contact-section .contact span {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+}
+.contact-section .contact a {
+  display: block;
+}
+.contact-section .contact:first-of-type {
+  margin: 50px 0 10px;
+}
+.contact-section .contact:first-of-type span {
+  background: url("/images/icon_instagram.svg");
+}
+.contact-section .contact:nth-of-type(2) span {
+  background: url("/images/icon_whatsapp.svg");
 }
 .contact-section a {
   text-decoration: underline;
