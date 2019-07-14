@@ -2,6 +2,12 @@ var mongoose = require("mongoose");
 
 var productSchema = new mongoose.Schema(
 {
+    ordinal:
+    {
+        type: Number ,
+        required: true
+    } ,
+    
     name:
     {
         type: String ,

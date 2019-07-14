@@ -23,12 +23,18 @@ li
         margin-left: 10px;
     }
 
-    input:nth-of-type(2)
+    .ordinal
+    {
+        width: 40px;
+        text-align: right;
+    }
+
+    .price
     {
         text-align: right;
     }
 
-    button:nth-of-type(2)
+    .botao-remover
     {
         display: none;
     }

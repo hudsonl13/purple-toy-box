@@ -2,7 +2,7 @@ var db = require("../models");
 
 exports.getProducts = function(req , res)
 {
-    db.Product.find()
+    db.Product.find().sort({ordinal: 1})
     .then(function(products)
     {
         res.json(products);

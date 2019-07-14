@@ -34,7 +34,6 @@ function handleSalvar()
 
 function handleRemover()
 {
-    console.log(this);
     removeProduct(this.parentNode);
 }
 
@@ -75,9 +74,9 @@ function addProducts(products)
 
 function addProduct(product)
 {
-    var newProduct = `<li data-id = '${product._id}'><input class = 'name' type = 'text' placeholder = 'Nome' value = '${product.name}' readonly><input class = 'price' type = 'number' step = '.01' placeholder = 'Preço (em R$)' value = '${product.price.toFixed(2)}' readonly><input class = 'link' type = 'text' placeholder = 'Link ML' value = '${product.link}' readonly><input class = 'image' type = 'text' placeholder = 'Link Imagem' value = '${product.image}' readonly><button class = 'button-editar' style = 'display: inline'>Editar</button><button class = 'button-salvar' style = 'display: none'>Salvar</button><button class = 'button-remover'>Remover</button></li>`;
+    var newProduct = `<li data-id = '${product._id}'><input class = 'ordinal' type = 'number' placeholder = '#' value = '${product.ordinal}' readonly><input class = 'name' type = 'text' placeholder = 'Nome' value = '${product.name}' readonly><input class = 'price' type = 'number' step = '.01' placeholder = 'Preço (em R$)' value = '${product.price.toFixed(2)}' readonly><input class = 'link' type = 'text' placeholder = 'Link ML' value = '${product.link}' readonly><input class = 'image' type = 'text' placeholder = 'Link Imagem' value = '${product.image}' readonly><button class = 'button-editar' style = 'display: inline'>Editar</button><button class = 'button-salvar' style = 'display: none'>Salvar</button><button class = 'button-remover'>Remover</button></li>`;
 
-    document.querySelector("ol").insertAdjacentHTML("beforeend" , newProduct);
+    document.querySelector("ul").insertAdjacentHTML("beforeend" , newProduct);
 
     setButtonsUp();
 }
@@ -85,12 +84,15 @@ function addProduct(product)
 function upsertProduct(product)
 {
     var clickedProductId = product.dataset.id;
+    var productOrdinal = product.querySelector(".ordinal").value;
     var productName = product.querySelector(".name").value;
     var productPrice = product.querySelector(".price").value;
     var productLink = product.querySelector(".link").value;
     var productImage = product.querySelector(".image").value;
 
-    var data = {name: productName , price: productPrice , link: productLink , image: productImage};
+    var data = {ordinal: productOrdinal , name: productName , price: productPrice , link: productLink , image: productImage};
+
+    console.log(data);
 
     if (! clickedProductId)
     {
@@ -116,7 +118,6 @@ function upsertProduct(product)
 
 function removeProduct(product)
 {
-
     var clickedProductId = product.dataset.id;
 
     fetch("/api/products/" + clickedProductId , {method: "delete"})
@@ -130,9 +131,10 @@ const buttonNovo = document.querySelector("#button-novo");
 
 buttonNovo.addEventListener("click" , function()
 {
-    var list = document.querySelector("ol");
+    var list = document.querySelector("ul");
 
-    var product = "<li><input class = 'name' type = 'text' placeholder = 'Nome'>" +
+    var product = "<li><input class = 'ordinal' type = 'number' placeholder = '#'>" +
+        "<input class = 'name' type = 'text' placeholder = 'Nome'>" +
         "<input class = 'price' type = 'number' step = '.01' placeholder = 'Preço (em R$)'>" +
         "<input class = 'link' type = 'text' placeholder = 'Link ML'>" +
         "<input class = 'image' type = 'text' placeholder = 'Link Imagem'>" +
